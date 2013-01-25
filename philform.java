@@ -9,6 +9,10 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JComboBox;
+import java.awt.Font;
 
 
 public class philform extends JFrame {
@@ -16,6 +20,7 @@ public class philform extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JLabel lblLogin;
 
 	/**
 	 * Launch the application.
@@ -38,7 +43,7 @@ public class philform extends JFrame {
 	 */
 	public philform() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 207, 300);
+		setBounds(100, 100, 235, 215);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -48,30 +53,41 @@ public class philform extends JFrame {
 		btnClickMe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame ren = new rentals();
-				ren.setTitle("rentals");
+				ren.setTitle("Philoxenia - Rentals");
 				ren.setVisible(true);	
 				setVisible(false);
 			}
 		});
-		btnClickMe.setBounds(92, 106, 89, 23);
+		btnClickMe.setBounds(120, 142, 89, 23);
 		contentPane.add(btnClickMe);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 28, 171, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		panel.setBounds(10, 11, 186, 120);
+		contentPane.add(panel);
+		panel.setLayout(null);
 		
 		textField_1 = new JTextField();
+		textField_1.setBounds(10, 89, 171, 20);
+		panel.add(textField_1);
 		textField_1.setColumns(10);
-		textField_1.setBounds(10, 75, 171, 20);
-		contentPane.add(textField_1);
-		
-		JLabel lblUsername = new JLabel("Username:");
-		lblUsername.setBounds(10, 11, 101, 14);
-		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(10, 59, 71, 14);
-		contentPane.add(lblPassword);
+		lblPassword.setBounds(10, 75, 71, 14);
+		panel.add(lblPassword);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 52, 171, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblUsername = new JLabel("Username:");
+		lblUsername.setBounds(10, 36, 101, 14);
+		panel.add(lblUsername);
+		
+		lblLogin = new JLabel("Login ");
+		lblLogin.setBounds(65, 11, 58, 30);
+		panel.add(lblLogin);
+		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 13));
 	}
 }
